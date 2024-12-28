@@ -127,6 +127,22 @@ namespace Binary_Tree
             InOrderTraversal(Root);
             Console.WriteLine();
         }
+        public void LevelOrderTraversal()
+        {
+            var queue = new Queue<BinaryNode<T>>();
+            queue.Enqueue(Root);
+        
+            while (queue.Count > 0)
+            {
+                var current = queue.Dequeue();
+                Console.Write(current.Value + " ");
+        
+                if (current.Left != null)
+                    queue.Enqueue(current.Left);
+                if (current.Right != null)
+                    queue.Enqueue(current.Right);
+            }
+        }
     }
 
 
